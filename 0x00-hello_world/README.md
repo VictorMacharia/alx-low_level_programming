@@ -4,4 +4,7 @@ Programing with c
 1-compiler : gcc -c $CFILE -o 1-main.o
 2-assembler : gcc -S $CFILE -o 2-main.s
 3-name : gcc $CFILE -o cisfun 
-4-puts.c : 
+4-puts.c : Detty style pointers
+		int main(void)
+		all commands be written on a new line
+		return (0); 
