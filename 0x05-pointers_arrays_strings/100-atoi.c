@@ -3,7 +3,7 @@
 
 /**
  * _atoi - converts a string to an integer.
- * @s - points to the string to be converted
+ * @s: points to the string to be converted.
  *
  */
 
@@ -40,5 +40,5 @@ int _atoi(char *s)
 			mult /= 10;
 		}
 	}
-	return(num);
+	return (num);
 }
