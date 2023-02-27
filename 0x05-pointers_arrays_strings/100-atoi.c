@@ -4,6 +4,7 @@
 /**
  * _atoi - converts a string to an integer.
  * @s: points to the string to be converted.
+ * Return: number of integers on a string
  *
  */
 
