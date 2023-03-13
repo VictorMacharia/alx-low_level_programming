@@ -11,36 +11,36 @@
 
 int **alloc_grid(int width, int height)
 {
-	int **grid, row, col;
+	int **twoDim;
+	int hgt_index, wid_index;
 
-	if (width < 1 || height < 1)
+	if (width <= 0 || height <= 0)
 		return (NULL);
 
-	grid = (int **)malloc(height * sizeof(int *));
+	twoDim = malloc(sizeof(int *) * height);
 
-	if (!grid)
-	{
-		free(grid);
+	if (twoDim == NULL)
 		return (NULL);
-	}
 
-	for (row = 0; row < height; row++)
+	for (hgt_index = 0; hgt_index < height; hgt_index++)
 	{
-		grid[row] = (int *)malloc(width * sizeof(int));
+		twoDim[hgt_index] = malloc(sizeof(int) * width);
 
-		if (!grid[row])
+		if (twoDim[hgt_index] == NULL)
 		{
-			while (row)
-			{
-				free(grid[row]);
-				row--;
-			}
-			free(grid);
+			for (; hgt_index >= 0; hgt_index--)
+				free(twoDim[hgt_index]);
+
+			free(twoDim);
 			return (NULL);
 		}
-		for (col = 0; col < width; col++)
-			grid[row][col] = 0;
 	}
 
-	return (grid);
+	for (hgt_index = 0; hgt_index < height; hgt_index++)
+	{
+		for (wid_index = 0; wid_index < width; wid_index++)
+			twoDim[hgt_index][wid_index] = 0;
+	}
+
+	return (twoDim);
 }
